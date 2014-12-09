@@ -6,6 +6,13 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport {
 	private String username;
 	private String password;
+	private String tip;
+	public String getTip() {
+		return tip;
+	}
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -18,7 +25,13 @@ public class LoginAction extends ActionSupport {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String execute(){
+	public String regist() throws Exception{
+		ActionContext.getContext().getSession()
+			.put("user", getUsername());
+		setTip("恭喜您，"+getUsername()+",您已经注册成功");
+		return SUCCESS;
+	}
+	public String execute() throws Exception{
 		if(getUsername().equals("whaix")&&getPassword().equals("192781")){
 			ActionContext.getContext().getSession().put("user",getUsername());
 			return SUCCESS;

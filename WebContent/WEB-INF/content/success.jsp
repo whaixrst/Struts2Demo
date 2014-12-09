@@ -10,6 +10,7 @@
 <body>
 	<s:text name="succTip">
 		<s:param>${sessionScope.user}</s:param>
-	</s:text>
+	</s:text><br/>
+	<s:property value="tip"/>
 </body>
 </html>
